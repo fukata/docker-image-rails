@@ -2,7 +2,7 @@ FROM ruby:2.5.1
 
 ENV LANG C.UTF-8
 
-RUN echo "deb http://ftp.uk.debian.org/debian jessie-backports main" >> /etc/apt/sources.list \
+RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/apt/sources.list \
     && apt-get update -qq \
     && apt-get install -y --no-install-recommends \
     build-essential \
@@ -20,10 +20,10 @@ RUN echo "deb http://ftp.uk.debian.org/debian jessie-backports main" >> /etc/apt
     libxslt-dev \
     libgd-dev \
     libgeoip-dev \
-    libmysqlclient-dev \
+    libmariadbclient-dev \
     ffmpeg \
     fonts-ipafont-gothic \
-    && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
