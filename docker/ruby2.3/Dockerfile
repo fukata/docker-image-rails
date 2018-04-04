@@ -25,7 +25,8 @@ RUN echo "deb http://ftp.uk.debian.org/debian jessie-backports main" >> /etc/apt
     fonts-ipafont-gothic \
     && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get install -y nodejs \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && npm install -g phantomjs-prebuilt
 
 ENV ENTRYKIT_VERSION 0.4.0
 RUN wget https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERSION}/entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \
