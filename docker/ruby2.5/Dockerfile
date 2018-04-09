@@ -26,6 +26,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/ap
     && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/* \
+    && npm i -g npm \
     && npm install -g phantomjs-prebuilt --unsafe-perm
 
 ENV ENTRYKIT_VERSION 0.4.0
