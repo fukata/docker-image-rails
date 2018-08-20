@@ -23,6 +23,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/ap
     libmariadbclient-dev \
     ffmpeg \
     fonts-ipafont-gothic \
+    libnss3 \
     && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/* \
