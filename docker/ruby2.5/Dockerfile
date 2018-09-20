@@ -26,7 +26,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/ap
     ffmpeg \
     fonts-ipafont-gothic \
     libnss3 \
-    && wget -q https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip \
+    && wget -q https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip \
     && unzip chromedriver_linux64.zip \
     && mv chromedriver /usr/bin/chromedriver \
     && chmod 755 /usr/bin/chromedriver \
