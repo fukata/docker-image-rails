@@ -26,6 +26,15 @@ RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/ap
     ffmpeg \
     fonts-ipafont-gothic \
     libnss3 \
+    libmecab-dev \
+    mecab \
+    mecab-ipadic-utf8 \
+    && git clone https://github.com/neologd/mecab-ipadic-neologd.git \
+    && cd mecab-ipadic-neologd \
+    && ./bin/install-mecab-ipadic-neologd -n -y \
+    && cd ../ && rm -fr mecab-ipadic-neologd \
+    && mv /etc/mecabrc /etc/mecabrc.old \
+    && sed -e s@/var/lib/mecab/dic/debian@/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd@g /etc/mecabrc.old > /etc/mecabrc \
     && wget -q https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip \
     && unzip chromedriver_linux64.zip \
     && mv chromedriver /usr/bin/chromedriver \
