@@ -4,11 +4,7 @@ ENV LANG C.UTF-8
 ENV IMAGE_MAGICK_VERSION 7.0.8-27
 
 RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/apt/sources.list \
-    && echo "deb-src http://deb.debian.org/debian stretch main" >> /etc/apt/sources.list \
-    && echo "deb-src http://deb.debian.org/debian-security/ stretch/updates main" >> /etc/apt/sources.list \
-    && echo "deb-src http://deb.debian.org/debian stretch-updates main" >> /etc/apt/sources.list \
     && apt-get update -qq \
-    && apt-get build-dep -y imagemagick \
     && apt-get install -y --no-install-recommends \
     build-essential \
     unzip \
@@ -42,15 +38,6 @@ RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/ap
     && make install \
     && cd ../ \
     && rm -fr giflossy \
-    && wget https://www.imagemagick.org/download/ImageMagick-${IMAGE_MAGICK_VERSION}.tar.gz \
-    && tar xf ImageMagick-${IMAGE_MAGICK_VERSION}.tar.gz \
-    && cd ImageMagick-${IMAGE_MAGICK_VERSION} \
-    && ./configure \
-    && make \
-    && make install \
-    && ldconfig /usr/local/lib \
-    && cd ../ \
-    && rm -fr ImageMagick-${IMAGE_MAGICK_VERSION} \
     && git clone https://github.com/neologd/mecab-ipadic-neologd.git \
     && cd mecab-ipadic-neologd \
     && ./bin/install-mecab-ipadic-neologd -n -y \
