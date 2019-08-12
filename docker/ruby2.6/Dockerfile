@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.6.3-stretch
 
 ENV LANG C.UTF-8
 ENV IMAGE_MAGICK_VERSION 7.0.8-27
@@ -59,6 +59,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/ap
     && rm -rf /var/lib/apt/lists/* \
     && npm i -g npm \
     && npm install -g phantomjs-prebuilt --unsafe-perm \
+    && bundle update --bundler \
     && echo "Cleaning up image. see https://github.com/janeczku/docker-debian-s6/blob/master/docker/wheezy-backports/rootfs/usr/bin/apt-clean" \
     && apt-get autoremove -y \
     && apt-get clean \
