@@ -2,6 +2,7 @@ FROM ruby:2.6.3-buster
 
 ENV LANG C.UTF-8
 ENV IMAGE_MAGICK_VERSION 7.0.8-27
+ENV BUNDLER_VERSION 2.0.2
 
 RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt/sources.list \
     && apt-get update -qq \
@@ -60,7 +61,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt
     && rm -rf /var/lib/apt/lists/* \
     && npm i -g npm \
     && npm install -g phantomjs-prebuilt --unsafe-perm \
-    && bundle update --bundler \
+    && gem install bundler -v "${BUNDLER_VERSION}" \
     && echo "Cleaning up image. see https://github.com/janeczku/docker-debian-s6/blob/master/docker/wheezy-backports/rootfs/usr/bin/apt-clean" \
     && apt-get autoremove -y \
     && apt-get clean \
