@@ -1,11 +1,12 @@
-FROM ruby:2.6.3-stretch
+FROM ruby:2.6.3-buster
 
 ENV LANG C.UTF-8
 ENV IMAGE_MAGICK_VERSION 7.0.8-27
 
-RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/apt/sources.list \
+RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt/sources.list \
     && apt-get update -qq \
     && apt-get install -y --no-install-recommends \
+    sudo \
     build-essential \
     unzip \
     gdebi \
@@ -13,7 +14,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian stretch-backports main" >> /etc/ap
     libfontconfig1 \
     libreadline-dev \
     libmagickwand-dev \
-    libcurl3 libcurl3-gnutls \
+    libcurl4 \
     libcurl4-openssl-dev \
     libssl-dev \
     gettext \
