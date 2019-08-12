@@ -5,8 +5,8 @@ ENV IMAGE_MAGICK_VERSION 7.0.8-27
 ENV BUNDLER_VERSION 2.0.2
 
 RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt/sources.list \
-    && apt-get update -qq \
-    && apt-get install -y --no-install-recommends \
+    && apt update -qq \
+    && apt install -y --no-install-recommends \
     sudo \
     build-essential \
     unzip \
@@ -57,15 +57,15 @@ RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt
     && gdebi -n google-chrome-stable_current_amd64.deb \
     && rm google-chrome-stable_current_amd64.deb \
     && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-    && apt-get install -y nodejs \
+    && apt install -y nodejs npm \
     && rm -rf /var/lib/apt/lists/* \
     && npm i -g npm \
     && npm install -g phantomjs-prebuilt --unsafe-perm \
     && gem install bundler -v "${BUNDLER_VERSION}" \
     && echo "Cleaning up image. see https://github.com/janeczku/docker-debian-s6/blob/master/docker/wheezy-backports/rootfs/usr/bin/apt-clean" \
-    && apt-get autoremove -y \
-    && apt-get clean \
-    && apt-get autoclean \
+    && apt autoremove -y \
+    && apt clean \
+    && apt autoclean \
     && rm -rf /tmp/* /var/tmp/* \
     && rm -rf /var/lib/apt/lists/* \
     && rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin
