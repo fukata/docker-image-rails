@@ -21,6 +21,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt
     libpcre3-dev \
     libxml2-dev \
     libxslt-dev \
+    zlib1g-dev \
     libgd-dev \
     libgeoip-dev \
     libmariadbclient-dev \
