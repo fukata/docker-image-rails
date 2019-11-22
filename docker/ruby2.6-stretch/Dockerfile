@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-stretch
+FROM ruby:2.6.5-stretch
 
 ENV LANG C.UTF-8
 ENV IMAGE_MAGICK_VERSION 7.0.8-27
