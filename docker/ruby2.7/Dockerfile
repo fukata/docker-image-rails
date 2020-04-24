@@ -1,4 +1,4 @@
-FROM ruby:2.7.0-buster
+FROM ruby:2.7.1-buster
 
 ENV LANG C.UTF-8
 
