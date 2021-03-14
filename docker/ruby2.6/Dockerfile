@@ -61,6 +61,11 @@ RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt
     && npm i -g npm \
     && npm install -g phantomjs-prebuilt --unsafe-perm \
     && gem install bundler:2.0.2 \
+    && echo "Install Yarn" \
+    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt update -qq \
+    && apt install yarn -y --no-install--recoomends \
     && echo "Cleaning up image. see https://github.com/janeczku/docker-debian-s6/blob/master/docker/wheezy-backports/rootfs/usr/bin/apt-clean" \
     && apt autoremove -y \
     && apt clean \
