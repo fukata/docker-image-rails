@@ -65,7 +65,7 @@ RUN echo "deb http://ftp.uk.debian.org/debian buster-backports main" >> /etc/apt
     && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt update -qq \
-    && apt install yarn -y --no-install--recoomends \
+    && apt install yarn -y --no-install--recommends \
     && echo "Cleaning up image. see https://github.com/janeczku/docker-debian-s6/blob/master/docker/wheezy-backports/rootfs/usr/bin/apt-clean" \
     && apt autoremove -y \
     && apt clean \
