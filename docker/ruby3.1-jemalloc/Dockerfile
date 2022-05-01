@@ -94,6 +94,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
+RUN gem install bundler -v 2.3.12
 RUN bundle config build.nokogiri --use-system-libraries
 
 ENTRYPOINT [ \
