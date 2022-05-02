@@ -33,7 +33,9 @@ RUN apt-get update -qq \
     libjemalloc-dev \
     libjemalloc2
 
+# https://andresakata.medium.com/benchmark-of-memory-allocators-on-a-multi-threaded-ruby-program-354ec4dc2e7e
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+ENV MALLOC_CONF=narenas:2
 
 RUN git clone https://github.com/kornelski/giflossy.git \
     && cd giflossy \
